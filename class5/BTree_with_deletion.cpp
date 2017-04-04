@@ -146,9 +146,9 @@ class BST{ // Binary Search Tree (BST)
 
 		void infix(Node<F>* current){
 			if(current!=NULL){
-				infix(current->right);
-				cout<<current->value<<" ";
 				infix(current->left);
+				cout<<current->value<<" ";
+				infix(current->right);
 			}
 		}
 
@@ -180,12 +180,12 @@ int main(){
 		tree.insert(nums[i]);
 	}
 
-	tree.display();
-
-	for(int i=0;i<5;i++){
-		tree.deleteNode(nums[i]);
-		tree.display();
-	}
+	tree.display(1); // Correct Output: 300 250 200 150 100 50 
+	tree.deleteNode(200);
+	tree.display(); // Correct Output: 100 150 250 300 50
+	cout<<tree.find(200); // Correct Output: 0
+	cout<<endl;
+	cout<<tree.find(300); // Correct Output: 1
 
 	return 0;
 }
